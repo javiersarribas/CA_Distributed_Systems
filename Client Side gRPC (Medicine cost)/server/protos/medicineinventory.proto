@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package medicineinventory;
+
+service MedicineInventory {
+  rpc totalCartValue (stream Medicine) returns (Cart) {}
+}
+
+message Medicine {
+  string name = 1;
+  string brand = 2;
+  double price = 3;
+}
+
+message Cart {
+  int32 medicine = 1;
+  double price = 2;
+}
