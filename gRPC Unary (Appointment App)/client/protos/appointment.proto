@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package appointment;
+
+service AppService {
+rpc add(AppRequest) returns (AppResponse) {}
+rpc subtract(AppRequest) returns (AppResponse) {}
+rpc divide(AppRequest) returns (AppResponse) {}
+rpc multiply(AppRequest) returns (AppResponse) {}
+}
+
+message AppRequest {
+  string name = 1;
+  uint32 day = 2;
+  uint32 month = 3;
+  uint32 year = 4;
+  string doctor = 5;
+}
+
+message AppResponse {
+  string result = 1;
+  string message = 2;
+}

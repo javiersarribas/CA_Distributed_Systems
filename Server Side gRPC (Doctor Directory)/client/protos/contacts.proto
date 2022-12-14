@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package contacts;
+
+service ContactService {
+  rpc getContacts(ContactRequest) returns (stream ContactResponse) {}
+}
+
+message ContactRequest {
+}
+
+message ContactResponse {
+  string ContactName = 1;
+  uint32 PhoneNumber = 2;
+}

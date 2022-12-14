@@ -11,16 +11,18 @@ var call = client.totalCartValue(function(error, response) {
   if(error) {
     console.log("An error occured")
   } else {
-    console.log("You have ordered " + response.medicine + " the total cost is: " + response.price)
+    console.log("\n------------\nTOTAL ITEMS:\n------------")
+    console.log("You have ordered a total of " + response.medicine + " items, and the total cost is: " + response.price + "€")
   }
 })
+console.log("--------------------------------------------------------------------\nPlease enter the following details to calculate your medicine price:\n--------------------------------------------------------------------")
 
 while(true) {
-  var medicine_name = readlineSync.question("What is the name of the medicine? (q to Quit): ")
+  var medicine_name = readlineSync.question("\nWhat is the name of the medicine? (Press q to Quit): ")
   if(medicine_name.toLowerCase() === "q") {
     break
   }
-  var brand = readlineSync.question("Who is the medicine's brand? ")
+  var brand = readlineSync.question("Which is the medicine's brand? ")
   var price = readlineSync.question("How much does the medicine cost? ")
 
   call.write({
