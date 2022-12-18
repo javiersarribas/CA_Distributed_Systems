@@ -8,7 +8,7 @@ var medicineinventory_proto = grpc.loadPackageDefinition(packageDefinition).medi
 var client = new medicineinventory_proto.MedicineInventory("0.0.0.0:40000", grpc.credentials.createInsecure());
 
 //client.totalCartValue --> Listener function (callback) which will be invoked
-//once the server sends back the total cost of the books. Only executes when
+//once the server sends back the total cost of the medicines. Only executes when
 //we are not sending any more medicine data.
 var call = client.totalCartValue(function(error, response) {
   if(error) {
