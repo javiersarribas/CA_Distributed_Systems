@@ -5,6 +5,7 @@ var PROTO_PATH = __dirname + "/protos/contacts.proto"
 var packageDefinition = protoLoader.loadSync(PROTO_PATH)
 var contacts_proto = grpc.loadPackageDefinition(packageDefinition).contacts
 
+//List of all medical contacts to print after running the application.
 var data = [
   {
     contactName:"James McCarthy",
@@ -59,6 +60,7 @@ var data = [
   }
 ]
 
+//FOR loop and "call.write" function to send back multiple responses.
 function getContact(call, callback) {
   for(var i = 0; i < data.length; i++) {
     call.write({
@@ -67,6 +69,7 @@ function getContact(call, callback) {
       section: data[i].section
     })
   }
+  //call.end to tell the client the data stream has ended.
   call.end()
 }
 

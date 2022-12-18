@@ -9,10 +9,7 @@ var client = new appointment_proto.AppService("0.0.0.0:40000", grpc.credentials.
 
 var action = readlineSync.question(
   "What would you like to do?\n"
-  + "\t 1 - To request a new appointment // to add two numbers\n"
-  + "\t 2 - To delete an appointment // to subtract two numbers\n"
-  + "\t 3 - To modify an appointment // to divide two numbers\n"
-  + "\t 4 - Show status of appointment // to multiply two numbers\n"
+  + "\t 1 - To request a new appointment\n"
 )
 
 action = parseInt(action)

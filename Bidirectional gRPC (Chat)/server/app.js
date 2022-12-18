@@ -7,6 +7,10 @@ var chat_proto = grpc.loadPackageDefinition(packageDefinition).chat;
 var clients = {
 }
 
+//call.on data --> listener function that determines what happens when we
+//receive some data from our client here we add the client which has connected
+//to an object (our {}) of clients (on lines 17 – 20) we then broad cast this
+//message to all connected clients (which we can see on lines 24 – 31).
 function sendMessage(call) {
   call.on ('data', function(chat_message) {
 
@@ -26,10 +30,13 @@ function sendMessage(call) {
       )
     }
   });
+  //call.on end --> function will be invoked when the client quits the
+  //application which we then in term call the call.end() which will invoke
+  //the clients 'end' listener.
   call.on('end', function() {
     call.end();
   });
-
+  //call.on error --> function will be invoked when an error occurs.
   call.on('error', function(e) {
     console.log(e)
   });
